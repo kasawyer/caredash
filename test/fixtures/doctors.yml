@@ -1,5 +1,7 @@
 doctor_1:
   name: "Doctor Sawyer"
+  id: 1
 
 doctor_2:
   name: "Doctor Jones"
+  id: 2

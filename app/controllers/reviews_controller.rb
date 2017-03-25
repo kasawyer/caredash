@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
   def index
     @doctor = Doctor.find(params[:doctor_id])
     @reviews = @doctor.reviews
-    render json: @reviews
+    render json: @reviews.as_json(include: [:doctor])
   end
 
   # GET /doctors/1/reviews/1
   def show
     @doctor = Doctor.find(params[:doctor_id])
     @review = @doctor.reviews.find(params[:id])
-    render json: @review
+    render json: @review.as_json(include: [:doctor])
   end
 
   # GET /doctors/1/reviews/new
