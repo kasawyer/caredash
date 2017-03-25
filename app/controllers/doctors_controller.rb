@@ -15,7 +15,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/new
   def new
     @doctor = Doctor.new
-    # @notice = flash[:notice]
+    @notice = flash[:notice]
   end
 
   # POST /doctors
