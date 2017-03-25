@@ -1,0 +1,7 @@
+review_1:
+  doctor_id: 1
+  description: "Great!"
+
+review_2:
+  doctor_id: 1
+  description: "Bad experience"
