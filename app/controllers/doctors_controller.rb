@@ -3,13 +3,13 @@ class DoctorsController < ApplicationController
   # GET /doctors
   def index
     @doctors = Doctor.all
-    render json: @doctors
+    render json: @doctors.as_json(include: [:reviews])
   end
 
   # GET /doctors/1
   def show
     @doctor = Doctor.find(params[:id])
-    render json: @doctor
+    render json: @doctor.as_json(include: [:reviews])
   end
 
   # GET /doctors/new
@@ -51,9 +51,9 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1
   def destroy
     @doctor = Doctor.find(params[:id])
-    # @doctor.reviews.each do |review|
-    #   review.destroy
-    # end
+    @doctor.reviews.each do |review|
+      review.destroy
+    end
     @doctor.destroy
     flash[:notice] = ["Doctor was successfully deleted."]
     redirect_to doctors_path
