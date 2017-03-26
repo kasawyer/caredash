@@ -1,9 +1,0 @@
-review_1:
-  doctor_id: 1
-  description: "Great!"
-  id: 1
-
-review_2:
-  doctor_id: 1
-  description: "Bad experience"
-  id: 2

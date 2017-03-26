@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:notice] = "Review saved successfully."
-      redirect_to doctor_path(@doctor)
+      redirect_to doctor_review_path(@doctor, @review)
     else
       flash.now[:notice] = "Failed to save review."
       render :new
@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
 
     if @review.update(review_params)
       flash[:notice] = ["Review updated successfully."]
-      redirect_to @review
+      redirect_to doctor_review_path(@doctor, @review)
     else
       flash.now[:notice] = @review.errors.full_messages
       render :edit
